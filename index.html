@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестовая страница с AI чат-ботом</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border-left: 4px solid #4267b2;
+        }
+        .feature h3 {
+            margin-top: 0;
+            color: #4267b2;
+        }
+        .example-questions {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .example-questions h3 {
+            margin-top: 0;
+        }
+        .example-questions ul {
+            margin-bottom: 0;
+        }
+    </style>
+    
+    <!-- Стили и скрипт чат-бота -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+        /* Core styles only - more specific and targeted */
+        .n8n-chat-header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%) !important;
+            padding: 0.5rem !important; /* Reduced padding for a smaller header */
+            min-height: auto !important;
+            height: auto !important;
+        }
+        
+        .n8n-chat-header h3 {
+            font-size: 12px !important; /* Reduced font size for header text */
+            font-weight: 500 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 1.2 !important;
+        }
+        
+        /* Message text size */
+        .n8n-chat-message {
+            font-size: 10px !important; /* Further reduced message text size */
+        }
+        
+        .n8n-chat-message p {
+            font-size: 10px !important; /* Consistent smaller text size */
+            margin: 0 !important;
+            line-height: 1.4 !important;
+        }
+        
+        /* Input styling */
+        .n8n-chat-input {
+            background: white !important;
+            border-top: 1px solid rgba(0,0,0,0.1) !important;
+            padding: 0.3rem !important; /* Reduced padding for input area */
+        }
+        
+        .n8n-chat-input textarea {
+            font-size: 10px !important; /* Smaller font size for input text */
+            padding: 6px !important; /* Reduced padding inside the textarea */
+            border: 1px solid rgba(0,0,0,0.1) !important;
+            border-radius: 4px !important; /* Slightly smaller border radius */
+            min-height: 30px !important; /* Reduced height of the input box */
+            width: 100% !important;
+        }
+        
+        /* Hide footer */
+        .n8n-chat-footer {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Умный AI-ассистент для вашего бизнеса</h1>
+            <p>
+                Представляем инновационное решение для автоматизации работы с данными вашего сайта. 
+                Наш AI-ассистент может анализировать содержимое любых веб-сайтов и отвечать на вопросы 
+                пользователей, опираясь на эту информацию.
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>Автоматический сбор данных</h3>
+                    <p>Система автоматически сканирует весь контент вашего сайта, включая скрытые страницы и разделы.</p>
+                </div>
+                <div class="feature">
+                    <h3>Интеллектуальные ответы</h3>
+                    <p>AI-ассистент анализирует запросы и предоставляет точные ответы на основе собранных данных.</p>
+                </div>
+                <div class="feature">
+                    <h3>Простая интеграция</h3>
+                    <p>Чат-бот легко встраивается на любой сайт без необходимости глубоких технических знаний.</p>
+                </div>
+            </div>
+            
+            <div class="example-questions">
+                <h3>Примеры вопросов для тестирования</h3>
+                <ul>
+                    <li>Как работает технология сбора и анализа данных с сайтов?</li>
+                    <li>Какие инструменты используются в этой автоматизации?</li>
+                    <li>Для каких целей можно использовать этого чат-бота?</li>
+                    <li>Каков процесс настройки этой системы?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Контейнер для чат-бота -->
+        <div id="n8n-chat"></div>
+    </div>
+
+    <!-- Скрипт инициализации чат-бота -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+        
+        createChat({
+            webhookUrl: 'https://jaaaaaack.app.n8n.cloud/webhook/c9d8cbda-ca07-444b-a2b9-c6660da67b86/chat',
+            target: '#n8n-chat',
+            mode: 'window',
+            showWelcomeScreen: true,
+            initialMessages: [
+                'Привет! 👋',
+                'Я AI-ассистент, который может рассказать о технологии автоматизированного сбора и анализа данных с веб-сайтов. Задайте мне вопрос!'
+            ],
+            i18n: {
+                ru: {
+                    title: 'AI Ассистент',
+                    subtitle: 'Умный помощник для вашего бизнеса',
+                    footer: '',
+                    getStarted: 'Начать чат',
+                    inputPlaceholder: 'Введите сообщение...',
+                }
+            }
+        });
+    </script>
+</body>
+</html>
